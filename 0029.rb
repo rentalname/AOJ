@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 array = gets.chomp.split
 
 register = Hash.new
