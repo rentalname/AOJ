@@ -40,3 +40,35 @@ Sample Output
 9
 
 NOTE
+
+$stdin = DATA if $stdin.eof?
+
+require 'matrix'
+n, m = gets.split.map(&:to_i)
+
+a =
+  n.times.inject([]) do |arr, o|
+    arr << gets.split.map(&:to_i)
+  end
+
+b =
+  m.times.inject([]) do |arr, o|
+    arr << gets.to_i
+  end
+
+ma = Matrix[*a]
+mb = Matrix.column_vector(b)
+
+mc = ma * mb
+
+puts mc.to_a
+
+__END__
+3 4
+1 2 0 1
+0 3 0 1
+4 1 1 0
+1
+2
+3
+0
