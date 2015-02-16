@@ -29,3 +29,21 @@ Sample Output 2
 No
 
 NOTE
+
+
+
+$stdin = DATA if $stdin.eof?
+
+target = gets.chomp
+expect = gets.chomp
+
+if Regexp.new(expect).match(target * 2)
+  puts 'Yes'
+else
+  puts 'No'
+end
+
+
+__END__
+vanceknowledgetoad
+advance

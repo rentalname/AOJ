@@ -53,12 +53,20 @@ NOTE
 
 $stdin = DATA if $stdin.eof?
 
-input = gets
+appear_count = Hash.new(0)
+ARGF.each_line do |line|
+  p chars = line.downcase.each_char
+  p group = chars.group_by{|c| c}
+  group.each{|k, arr| appear_count[k] += arr.size}
+  p appear_count
 
-p m = input.downcase.each_char.group_by{|c| c}
+  p '-' * 20
+end
 
-
-
+('a'..'z').each do |c|
+  puts "#{c} : #{appear_count[c]}"
+end
 
 __END__
 This is a pen.
+zzzz
