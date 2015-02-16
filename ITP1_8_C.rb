@@ -50,3 +50,15 @@ y : 0
 z : 0
 
 NOTE
+
+$stdin = DATA if $stdin.eof?
+
+input = gets
+
+p m = input.downcase.each_char.group_by{|c| c}
+
+
+
+
+__END__
+This is a pen.
