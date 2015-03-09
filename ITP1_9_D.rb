@@ -41,3 +41,46 @@ xyz
 abc
 
 NOTE
+
+class StringDSL
+  attr_reader :str
+  def initialize(str)
+    @str = str
+  end
+
+  def print(a, b)
+    puts str[a,b]
+  end
+
+  def replace(a, b, p)
+    str[a,b] = p
+  end
+
+  def reverse
+    str[a,b] = str[a,b].reverse
+  end
+end
+
+$stdin = DATA if $stdin.eof?
+
+sd = StringDSL.new(gets.chomp)
+
+gets
+
+ARGF.each do |line|
+  op, a, b, c = line.chomp.split
+  a, b = [a, b].map(&:to_i)
+  puts op, a, b, c
+  if c
+    sd.send(op, a, b, c)
+  else
+    sd.send(op, a, b)
+  end
+end
+
+__END__
+xyz
+3
+print 0 2
+replace 0 2 abc
+print 0 2
