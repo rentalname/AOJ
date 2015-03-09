@@ -35,11 +35,11 @@ score_t = 0
 score_h = 0
 
 ARGF.each do |line|
-  w1, w2 = words = line.split.map(&:chomp)
+  w1, w2 = line.split.map(&:chomp)
   if w1 == w2
     score_t += 1
     score_h += 1
-  elsif words != words.sort
+  elsif (w1 <=> w2) == 1
     score_t += 3
   else
     score_h += 3
@@ -49,7 +49,8 @@ end
 puts "#{score_t} #{score_h}"
 
 __END__
-3
-cat dog
-fish fish
-lion tiger
+4
+a x
+a x
+x a
+a a
