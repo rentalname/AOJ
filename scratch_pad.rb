@@ -1,12 +1,6 @@
-if $stdin.eof?
-  $stdin = DATA
-end
-require 'matrix'
+$stdin = DATA if $stdin.eof?
 
-m = Matrix[[[1,2],[3,4]], [[1,2],[5,6]]]
-
-
-p m
+p ARGF.each.to_a.map(&:chomp).map(&:split).flatten
 
 __END__
 5 9
