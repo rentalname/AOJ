@@ -49,15 +49,15 @@ class StringDSL
   end
 
   def print(a, b)
-    puts str[a,b]
+    puts str[a..b]
   end
 
-  def replace(a, b, p)
-    str[a,b] = p
+  def replace(a, b, rstr)
+    str[a..b] = rstr
   end
 
-  def reverse
-    str[a,b] = str[a,b].reverse
+  def reverse(a, b)
+    str[a..b] = str[a..b].reverse
   end
 end
 
@@ -70,17 +70,29 @@ gets
 ARGF.each do |line|
   op, a, b, c = line.chomp.split
   a, b = [a, b].map(&:to_i)
-  puts op, a, b, c
+
   if c
-    sd.send(op, a, b, c)
+    sd.instance_eval("#{op}(#{a},#{b},'#{c}')")
   else
-    sd.send(op, a, b)
+    sd.instance_eval("#{op}(#{a},#{b})")
   end
 end
 
 __END__
-xyz
-3
-print 0 2
-replace 0 2 abc
-print 0 2
+abcdefghij
+15
+reverse 3 7
+print 1 8
+replace 1 3 xyz
+print 1 8
+replace 4 6 fff
+print 1 8
+replace 5 5 o
+print 1 8
+reverse 3 7
+print 1 8
+replace 8 9 xy
+print 0 9
+reverse 3 8
+reverse 0 5
+print 0 9
