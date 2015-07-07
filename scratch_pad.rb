@@ -1,6 +1,16 @@
+def foo(a: "")
+  puts a * 10
+end
+
+h = {
+  a: "foo",
+  b: "boo"
+}
+
+foo(h.slice(:a))
+
 $stdin = DATA if $stdin.eof?
 
-p ARGF.each.to_a.map(&:chomp).map(&:split).flatten
 
 __END__
 5 9

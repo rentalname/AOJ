@@ -1,5 +1,5 @@
 heights = []
-while line = ARGF.gets do 
+while line = ARGF.gets do
 	heights << line.to_i
 end
 
