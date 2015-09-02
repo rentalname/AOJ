@@ -1,14 +1,15 @@
-def foo(a: "")
-  puts a * 10
+class Hoo
+  def hoo
+    puts 111
+  end
+
+  private
+  def hoo
+    puts 222
+  end
 end
 
-h = {
-  a: "foo",
-  b: "boo"
-}
-
-foo(h.slice(:a))
-
+Hoo.hoo
 $stdin = DATA if $stdin.eof?
 
 
